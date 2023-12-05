@@ -21,10 +21,7 @@ public class ProductDTO {
     private double rating;
     private String imageUrl;
     private double price;
-
     private String merchantId;
-
-
     private String categoryId;
 
 }

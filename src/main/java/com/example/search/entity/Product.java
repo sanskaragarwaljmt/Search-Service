@@ -11,16 +11,7 @@ import lombok.Setter;
 @Setter
 @SolrDocument(collection = "oclockecom")
 public class Product {
-//    @Id
-//
-//
-//productId
-//    rating
-//            imageUrl;
-
-
     @Id
-
     @Indexed(name = "productname" , type = "string")
     private String productname;
     @Indexed(name = "productId" , type = "string")
@@ -31,11 +22,8 @@ public class Product {
     private String imageurl;
     @Indexed(name = "price", type = "double")
     private double price;
-
     @Indexed(name = "merchantId", type = "string")
     private String merchantId;
-
-
     @Indexed(name = "categoryId", type = "string")
     private String categoryId;
 

@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
     @Autowired
     private ProductService productService;
 
@@ -19,10 +20,12 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @PostMapping
+    @PostMapping("/addProduct")
     public void saveProduct(@RequestBody ProductDTO productDTO) {
       productService.saveProduct(productDTO);
     }
+
+
 //    @GetMapping("/{name}")
 //    public List<Product> findProductWithLowestPriceByName(@PathVariable String name) {
 //        return productService.findBYName(name);

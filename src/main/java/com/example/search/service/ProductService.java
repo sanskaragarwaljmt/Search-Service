@@ -46,46 +46,20 @@ public class ProductService {
         productRepository.save(product);
 
     }
-//    public List<Product> findBYName(String pname){
-//        return  productRepository.findByProductNameOrderByProductNameAsc(pname);
-//
-//    }
-//    public List<Product> findProductsByAttributes(
-//             String productname,
-//             String productId,
-//             double rating,
-//            double price,
-//
-//             String merchantId,
-//
-//                  String categoryId
-//    ) {
-//        String productName= "";
-//        for(int i=0;i<productname.length();i++){
-//            productName = productname.charAt(i)+"*";
-//        }
-//        return productRepository.findProductsByAttributes(
-//       productName,
-//      productId,
-//        rating,
-//
-//         price,merchantId,
-//        categoryId
-//        );
-//    }
-
-
 
 
     public List<Product> findProductsByNameAndSort(String name, String sortBy) {
         String productName= "";
         for(int i=0;i<name.length();i++){
-            productName = name.charAt(i)+"*";
+            productName += name.charAt(i)+"*";
         }
         Sort sort = sortBy != null && !sortBy.isEmpty() ? Sort.by(sortBy) : Sort.by("price");
-        PageRequest pageable = PageRequest.of(0, Integer.MAX_VALUE, sort);
-        return productRepository.findProductsByName(productName,pageable);
+        PageRequest pageable = PageRequest.of(10, Integer.MAX_VALUE, sort);
+        return productRepository.findProductsByName(productName, pageable);
     }
+
+
+
 
 
 }
